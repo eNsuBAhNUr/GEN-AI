@@ -21,8 +21,16 @@ async def ask_question(q: Question):
     sql = text_to_sql(q.question)
     result = execute_query(sql)
 
+    print("\n[User Question]:", q.question)
+    print("[Generated SQL]:", sql)
+
     if "error" in result:
+        print("[SQL Error]:", result["error"])
         return {"error": result["error"], "sql": sql}
     
+    print("[SQL Result]:")
+    for row in result["rows"]:
+        print(row)
+
     return {"sql": sql, "result": result}
 

@@ -10,7 +10,7 @@ document.getElementById("queryForm").addEventListener("submit", async (e) => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ question })  // removed 'plot' field
+    body: JSON.stringify({ question }) 
   });
 
   const data = await response.json();

@@ -71,7 +71,9 @@ def execute_query(sql: str):
         cursor.execute(sql)
         rows = cursor.fetchall()
         columns = [desc[0] for desc in cursor.description]
+        
         return {"columns": columns, "rows": rows}
+       
     except Exception as e:
         return {"error": f"SQL Error: {str(e)}"}
     finally:
